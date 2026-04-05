@@ -2,6 +2,12 @@ const audioPlayer = document.getElementById('audioPlayer');
 const progressSlider = document.getElementById('progressSlider');
 const progressBar = document.getElementById('progressBar');
 const previewOverlay = document.getElementById('preview');
+const cursor = document.getElementById('cursorDot');
+const playBtn = document.getElementById('playBtn');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+
+let rot = 0;
 
 previewOverlay.addEventListener('click', () => {
     previewOverlay.classList.add('hidden');
@@ -18,19 +24,28 @@ progressSlider.addEventListener('input', (e) => {
     audioPlayer.currentTime = (e.target.value / 100) * audioPlayer.duration;
 });
 
-const cursor = document.getElementById('cursorDot');
-let x = 0, y = 0, rot = 0;
+playBtn.addEventListener('click', () => {
+    audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
+});
+
+audioPlayer.addEventListener('play', () => {
+    playIcon.style.display = 'none';
+    pauseIcon.style.display = 'block';
+});
+
+audioPlayer.addEventListener('pause', () => {
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+});
 
 document.addEventListener('mousemove', (e) => {
-    x = e.clientX;
-    y = e.clientY;
-    cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
     
     const dot = document.createElement('div');
     dot.className = 'cursor-trail';
-    dot.style.left = x + 'px';
-    dot.style.top = y + 'px';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
     document.body.appendChild(dot);
     
     requestAnimationFrame(() => {
@@ -45,43 +60,35 @@ document.addEventListener('mousemove', (e) => {
     }, 80);
 });
 
-function spin() {
+function rotateCursor() {
     rot += 0.5;
     const svg = cursor.querySelector('svg');
     if (svg) svg.style.transform = `rotate(${rot}deg)`;
-    requestAnimationFrame(spin);
+    requestAnimationFrame(rotateCursor);
 }
-spin();
+rotateCursor();
 
 document.querySelectorAll('a, button, .progress-slider, .progress-container').forEach(el => {
     el.addEventListener('mouseenter', () => {
-        const svg = cursor.querySelector('svg');
-        svg.style.transform = `scale(1.4) rotate(${rot}deg)`;
+        cursor.querySelector('svg').style.transform = `scale(1.4) rotate(${rot}deg)`;
     });
     el.addEventListener('mouseleave', () => {
-        const svg = cursor.querySelector('svg');
-        svg.style.transform = `rotate(${rot}deg)`;
+        cursor.querySelector('svg').style.transform = `rotate(${rot}deg)`;
     });
 });
 
 document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
 document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
 
-const playBtn2 = document.getElementById('playBtn2');
-const playIcon = document.getElementById('playIcon');
-const pauseIcon = document.getElementById('pauseIcon');
+const videos = ['0001-0240.mp4', '0002-0240.mp4', '0003-0240.mp4', '0004-0240.mp4', '0005-0240.mp4', '0006-0240.mp4'];
+const video = document.getElementById('bgVideo');
+const source = document.createElement('source');
 
-playBtn2.addEventListener('click', () => {
-    audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
+source.src = videos[Math.floor(Math.random() * videos.length)];
+source.type = 'video/mp4';
+video.appendChild(source);
+
+video.play().catch(() => {
+    document.addEventListener('click', () => video.play());
+    document.addEventListener('touchstart', () => video.play());
 });
-
-audioPlayer.addEventListener('play', () => {
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'block';
-});
-
-audioPlayer.addEventListener('pause', () => {
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-});
-
