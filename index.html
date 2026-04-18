@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fragile.pet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="preview-overlay" id="preview">
+        <p class="preview-hint">click to view</p>
+    </div>
+
+    <audio id="audioPlayer" src="song.mp3" loop></audio>
+
+    <div class="container">
+        <h1 class="title">fragile.pet</h1>
+        <p class="subtitle">by @justuno</p>
+
+        <div class="subpages-list">
+            <a href="https://fragile.pet/justuno" class="subpage-card">
+                <span>@justuno</span>
+                <span class="uid">UID 1</span>
+            </a>
+
+            <a href="https://fragile.pet/strawberry/" class="subpage-card">
+                <span>@strawberry</span>
+                <span class="uid">UID 2</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z" />
+        </svg>
+    </div>
+</body>
+</html>
