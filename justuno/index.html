@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>justuno</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../favicon.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <video muted loop id="bgVideo" playsinline></video>
+    <div class="preview-overlay" id="preview">
+        <p class="preview-hint">click to view</p>
+    </div>
+
+    <div class="music-player">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="player-title">2019 justin bieber - lucy bedroque</div>
+            <button id="playBtn" class="play-btn">
+                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+        </div>
+        <div class="player-controls">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <input type="range" class="progress-slider" id="progressSlider" value="0" min="0" max="100">
+            </div>
+        </div>
+        <audio id="audioPlayer" src="song.mp3" loop></audio>
+    </div>
+
+    <main class="card">
+        <header class="card-header">
+            <span>fragile.pet<span class="subpage-tag">@justuno</span></span>
+            <a href="https://atmosphere.wtf" target="_blank" class="avatar-link">
+                <img src="../atmos.png" class="avatar-right">
+            </a>
+        </header>
+        <div class="card-inner">
+            <section class="link-block">
+                <a href="https://discord.com/invite/cuKuG9X6Ds" class="link-item" target="_blank" rel="noopener noreferrer">discord</a>
+                <a href="https://www.youtube.com/@shvapesweplua13" class="link-item" target="_blank" rel="noopener noreferrer">youtube</a>
+                <a href="https://github.com/iluvpawjobs" class="link-item" target="_blank" rel="noopener noreferrer">github</a>
+                <a href="https://pawjobs.me/apollo/" class="link-item" target="_blank" rel="noopener noreferrer">j <3</a>
+            </section>
+            <section class="content-block">
+                <p class="caption">haiii apollooooo!! <3 haiiii hi hi haiiii :3 apolloooooooo hii!!!!! haiiiiiiii arf awrouffff wroufff arrrrrrwruff!! </3</p>
+            </section>
+        </div>
+    </main>
+
+    <div class="cursor-dot" id="cursorDot">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z" />
+        </svg>
+    </div>
+</body>
+</html>
