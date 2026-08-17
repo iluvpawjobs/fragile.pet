@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Unbounded', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: auto;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #0d0d0d;
+  color: #f5f5f5;
+}
+
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.preview-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preview-hint {
+  margin: 0;
+  font-size: 1rem;
+  color: #e0e0e0;
+  opacity: 0.85;
+}
+
+.profile-area {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile-area.hidden {
+  display: none;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 999px;
+  background: #1a1a1a;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alias {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-top: 6px;
+}
+
+.handle {
+  font-size: 1rem;
+  color: #999;
+  margin-top: 4px;
+}
