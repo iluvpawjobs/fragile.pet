@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Unbounded', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #020202;
+    color: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.background-video {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .45;
+    filter: grayscale(1) contrast(1.1);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.025), transparent 42%), repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,.012) 4px);
+    pointer-events: none;
+}
+
+.entry-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #aaa;
+    background: rgba(2,2,2,.88);
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.entry-screen span {
+    color: #fff;
+    font-size: .85rem;
+    animation: entryPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes entryPulse {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+}
+
+body:not(.entered) .profile {
+    display: none;
+}
+
+.profile {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 460px);
+    background: rgba(13,13,13,.86);
+    border: 1px solid #2f2f2f;
+    padding: 18px;
+    animation: appear .45s ease both;
+}
+
+.profile-header {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 18px;
+    padding: 10px;
+    border: 1px solid #333;
+    background: rgba(15,15,15,.7);
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-label {
+    color: #666;
+}
+
+.profile-intro {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 4px 18px;
+}
+
+.profile-image {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+    filter: grayscale(1);
+    border: 1px solid #444;
+}
+
+.profile-eyebrow, .profile-handle, .profile-location, .profile-footer {
+    color: #777;
+    font-size: .7rem;
+}
+
+.profile-eyebrow, .profile-handle {
+    margin: 0;
+}
+
+.profile-name {
+    margin: 5px 0 4px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.profile-handle {
+    color: #555;
+}
+
+.profile-location {
+    margin: 7px 0 0;
+    font-size: .6rem;
+}
+
+.profile-location strong {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.social-links {
+    display: grid;
+    gap: 8px;
+    padding: 18px 0;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 12px;
+    color: #aaa;
+    border: 1px solid #333;
+    text-decoration: none;
+    font-size: .75rem;
+    transition: .15s ease;
+}
+
+.social-links a:hover {
+    background: #181818;
+    border-color: #666;
+    color: #fff;
+}
+
+.profile-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
+    padding: 13px 4px;
+}
+
+.discord-status {
+    color: #aaa;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
