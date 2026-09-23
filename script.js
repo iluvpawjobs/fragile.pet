@@ -1,12 +1,12 @@
 const discordUserId = '1146490692567322694';
 const lastSeen = document.getElementById('lastSeen');
 const discordStatus = document.getElementById('discordStatus');
-const enterScreen = document.getElementById('enterScreen');
+const welcomeScreen = document.getElementById('welcomeScreen');
 const backgroundVideo = document.getElementById('backgroundVideo');
 
-enterScreen.addEventListener('click', () => {
+welcomeScreen.addEventListener('click', () => {
     document.body.classList.add('entered');
-    enterScreen.remove();
+    welcomeScreen.remove();
     backgroundVideo.play().catch(() => {});
 });
 
