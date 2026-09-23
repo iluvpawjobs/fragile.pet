@@ -9,39 +9,40 @@
 </head>
 <body>
 
-    <video class="background-video" id="backgroundVideo" loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true">
-        <source src="assets/stick-around.mp4" type="video/mp4">
+    <video class="site-video" id="backgroundVideo" loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true">
+        <source src="assets/video.mp4" type="video/mp4">
     </video>
 
-    <button class="entry-screen" id="enterScreen" type="button">
+    <button class="welcome-screen" id="welcomeScreen" type="button">
         <span>click to view</span>
     </button>
 
-    <main class="profile">
-        <header class="profile-header">
+    <main class="profile-card">
+        <header class="profile-bar">
             <span>fragile.pet</span>
-            <span class="page-label">bio</span>
+            <span class="page-type">bio</span>
         </header>
 
-        <section class="profile-intro">
-            <img class="profile-image" src="assets/pfp.png" alt="Portrait of fragile.pet">
-            <div class="profile-copy">
-                <p class="profile-eyebrow">probably popping pingers</p>
-                <h1 class="profile-name">molly</h1>
-                <p class="profile-handle">@justuno</p>
+        <section class="profile-details">
+            <img class="avatar" src="assets/pfp.png" alt="Portrait of fragile.pet">
+            <div class="profile-text">
+                <p class="profile-tagline">probably popping pingers</p>
+                <h1 class="profile-title">ryan</h1>
+                <p class="profile-username">@justuno</p>
                 <p class="profile-location"><span>based in</span> <strong>united kingdom</strong></p>
             </div>
         </section>
 
-        <nav class="social-links" aria-label="Social links">
+        <nav class="social-list" aria-label="Social links">
             <a href="https://atmosphere.wtf" target="_blank" rel="noreferrer"><span>atmosphere</span><span>↗</span></a>
             <a href="https://edenware.club" target="_blank" rel="noreferrer"><span>edenware</span><span>↗</span></a>
             <a href="https://www.youtube.com/@shvapesweplua13" target="_blank" rel="noreferrer"><span>youtube</span><span>↗</span></a>
+            <a href="https://www.tiktok.com/@shvapesweplua13" target="_blank" rel="noreferrer"><span>tiktok</span><span>↗</span></a>
         </nav>
 
-        <footer class="profile-footer">
+        <footer class="status-bar">
             <span id="lastSeen">discord status</span>
-            <span class="discord-status" id="discordStatus">offline</span>
+            <span class="status-value" id="discordStatus">offline</span>
         </footer>
     </main>
 
